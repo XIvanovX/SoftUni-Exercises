@@ -1,0 +1,68 @@
+
+using System;
+
+namespace SoftUni
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int hrizantemaCount = int.Parse(Console.ReadLine());
+            int rosesCount=int.Parse(Console.ReadLine());  
+            int tulipsCount=int.Parse(Console.ReadLine());
+            string season = Console.ReadLine();
+            string holidayOrNot = Console.ReadLine();
+
+            double priceHrizWarm = 2;
+            double priceRoseWarm = 4.1;
+            double priceTulipWarm = 2.5;
+
+            double priceHrizCold = 3.75;
+            double priceRoseCold = 4.5;
+            double priceTulipCold = 4.15;
+
+            double totalPrice = 0;
+
+            switch(season)
+            {
+                case "Spring":
+                case "Summer":
+                    totalPrice = (priceHrizWarm * hrizantemaCount) + (priceRoseWarm * rosesCount) + (priceTulipWarm * tulipsCount);
+                    if(holidayOrNot=="Y")
+                    {
+                        totalPrice *= 1.15;
+
+                    }
+                    if(tulipsCount>7)
+                    {
+                        totalPrice *= 0.95;
+                    }
+                    break;
+                case "Autumn":
+                case "Winter":
+                    totalPrice = (priceHrizCold * hrizantemaCount) + (priceRoseCold * rosesCount) + (priceTulipCold * tulipsCount);
+                    if (holidayOrNot == "Y")
+                    {
+                        totalPrice *= 1.15;
+
+                    }
+                    if(season=="Winter")
+                    {
+                        if (rosesCount >= 10)
+                        {
+                            totalPrice *= 0.9;
+                        }
+                    }
+                    break;
+
+            }
+            
+            if((hrizantemaCount+rosesCount+tulipsCount)>20)
+            {
+                totalPrice *= 0.8;
+            }
+            Console.WriteLine($"{totalPrice+2:f2}");
+        }   
+
+    }
+}
