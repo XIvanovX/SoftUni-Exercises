@@ -1,0 +1,46 @@
+
+using System;
+
+namespace SoftUni
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            int sqM = int.Parse(Console.ReadLine());
+            double grapePerSquare=double.Parse(Console.ReadLine());
+            int litersNeeded = int.Parse(Console.ReadLine());
+            int workers = int.Parse(Console.ReadLine());
+
+        
+        
+            double wineProduction = (sqM * 0.4)*grapePerSquare;
+            double littersWine = wineProduction / 2.5;
+
+            double remainingWine = Math.Ceiling(littersWine - litersNeeded);
+            double winePerWorkers = Math.Ceiling(remainingWine / workers);
+
+            double wineMoreNeeded = Math.Ceiling(litersNeeded-littersWine);
+
+            
+
+            if(littersWine>=litersNeeded)
+            {
+                Console.WriteLine($"Good harvest this year! Total wine: {littersWine} liters.");
+                Console.WriteLine($"{remainingWine} liters left -> {winePerWorkers} liters per person.");
+
+
+            }
+            else
+            {
+                Console.WriteLine($"It will be a tough winter! More {wineMoreNeeded:f0} liters wine needed.");
+            }
+            
+
+            
+            
+        }
+    }
+}
