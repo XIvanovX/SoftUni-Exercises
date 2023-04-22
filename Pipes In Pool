@@ -1,0 +1,40 @@
+using System;
+
+namespace ConsoleApp7
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int poolSize = int.Parse(Console.ReadLine());
+            int p1 = int.Parse(Console.ReadLine());
+            int p2 = int.Parse(Console.ReadLine());
+            double hours= double.Parse(Console.ReadLine());
+
+            double totalLitersWater = (p1 * hours) + (p2 * hours);
+            double percentageFull = (totalLitersWater / poolSize) * 100;
+
+            double p1Percentage = ((p1*hours)/totalLitersWater) * 100;
+            double p2Percentage = ((p2*hours)/totalLitersWater) * 100;
+
+            if(totalLitersWater>poolSize)
+            {
+                Console.WriteLine($"For {hours} hours the pool overflows with {totalLitersWater - poolSize} liters");
+            }
+            else 
+                {
+                Console.WriteLine($"The pool is {percentageFull:f2}% full. Pipe 1: {p1Percentage:f2}%. Pipe 2:{p2Percentage:f2}%.");
+            }
+
+
+
+
+
+        }
+        }
+    }
+
+
+    
+
