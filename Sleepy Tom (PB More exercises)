@@ -1,0 +1,40 @@
+using System;
+
+namespace SoftUni
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int restDays = int.Parse(Console.ReadLine());
+
+            int restDayPlaying = restDays * 127;
+            int workDayPlaying = (365 - restDays) * 63;
+            int totalMinutesPlaying = restDayPlaying + workDayPlaying;
+
+            int postitiveDifference = totalMinutesPlaying - 30000;
+            int negativeDifference = 30000 - totalMinutesPlaying;
+
+            double hoursRun = postitiveDifference / 60;
+            double minutesRun = postitiveDifference % 60;
+
+            double hoursStay = negativeDifference / 60;
+            double minutesStay = negativeDifference % 60;
+
+            if( totalMinutesPlaying>30000)
+            {
+                Console.WriteLine("Tom will run away");
+                Console.WriteLine($"{hoursRun} hours and {minutesRun} minutes more for play");
+            }
+            else
+            {
+                Console.WriteLine("Tom sleeps well");
+                Console.WriteLine($"{hoursStay} hours and {minutesStay} minutes less for play");
+            }
+
+            
+            
+        }
+    }
+}
