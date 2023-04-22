@@ -1,0 +1,34 @@
+
+using System;
+
+namespace SoftUni
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int days = int.Parse(Console.ReadLine());
+            int foodLeft=int.Parse(Console.ReadLine());
+
+            double dogFoodPerDay=double.Parse(Console.ReadLine());
+            double catFoodPerDay = double.Parse(Console.ReadLine());
+            double turtleFoodPerDay = double.Parse(Console.ReadLine());
+
+            double foodnNeeded=(dogFoodPerDay*days)+(catFoodPerDay*days)+((turtleFoodPerDay/1000)*days);
+
+            double foodRemaining = Math.Floor(foodLeft - foodnNeeded);
+            double moreFoodNeeded = Math.Ceiling(foodnNeeded - foodLeft);
+
+            if(foodnNeeded<=foodLeft)
+            {
+                Console.WriteLine($"{foodRemaining} kilos of food left.");
+               
+            }
+            else
+            {
+                Console.WriteLine($"{moreFoodNeeded} more kilos of food are needed.");
+            }
+        }
+    }
+}
