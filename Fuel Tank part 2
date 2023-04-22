@@ -1,0 +1,76 @@
+
+using System;
+
+namespace SoftUni
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           string typeFuel=Console.ReadLine();
+            double quantityFuel = double.Parse(Console.ReadLine());
+            string card=Console.ReadLine();
+
+            double priceGasoline = 2.22;
+            double priceDiesel = 2.33;
+            double priceGas = 0.93;
+
+            double totalPrice = 0;
+
+            switch(typeFuel)
+            {
+                case "Gasoline":
+                    totalPrice = priceGasoline * quantityFuel;
+                    if(card=="Yes")
+                    {
+                        totalPrice = (quantityFuel * priceGasoline) -(quantityFuel*0.18);
+                    }
+                    if (quantityFuel >= 20 && quantityFuel <= 25)
+                        totalPrice *= 0.92;
+                    else if(quantityFuel>25)
+                    {
+                        totalPrice *= 0.9;
+                    }
+                    break;
+
+                case "Diesel":
+                    totalPrice = priceDiesel * quantityFuel;
+                    if (card == "Yes")
+                    {
+                        totalPrice = (quantityFuel *priceDiesel) - (quantityFuel * 0.12);
+                    }
+                    if (quantityFuel >= 20 && quantityFuel <= 25)
+                        totalPrice *= 0.92;
+                    else if (quantityFuel > 25)
+                    {
+                        totalPrice *= 0.9;
+                    }
+
+                    break;
+                case "Gas":
+                    totalPrice = priceGas * quantityFuel;
+                    if (card == "Yes")
+                    {
+                        totalPrice = (quantityFuel * priceGas) - (quantityFuel * 0.08);
+                    }
+                    if (quantityFuel >= 20 && quantityFuel <= 25)
+                        totalPrice *= 0.92;
+                    else if (quantityFuel > 25)
+                    {
+                        totalPrice *= 0.9;
+                    }
+                    break;
+
+
+                    break;
+
+
+
+            }
+
+            Console.WriteLine($"{totalPrice:f2} lv.");
+
+        }   
+
+    }
+}
