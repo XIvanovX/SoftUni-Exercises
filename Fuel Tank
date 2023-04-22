@@ -1,0 +1,35 @@
+
+using System;
+
+namespace SoftUni
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string typeFuel = Console.ReadLine();
+                
+            int fuel = int.Parse(Console.ReadLine());
+
+            if(typeFuel!= "Diesel" && typeFuel !="Gasoline" && typeFuel!="Gas")
+            {
+                
+                Console.WriteLine("Invalid fuel!");
+            }
+
+            
+
+           else if(fuel>=25)
+            {
+                Console.WriteLine($"You have enough {typeFuel.ToLower()}.");
+
+            }
+            else
+            {
+                Console.WriteLine($"Fill your tank with {typeFuel.ToLower()}!");
+            }
+        }   
+
+    }
+}
