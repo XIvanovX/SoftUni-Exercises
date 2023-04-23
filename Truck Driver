@@ -1,0 +1,68 @@
+using System;
+
+namespace ConsoleApp8
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string season = Console.ReadLine();
+            double kmMonth = double.Parse(Console.ReadLine());
+            double salary = 0;
+
+            switch (season)
+            {
+                case "Spring":
+                case "Autumn":
+                    if (kmMonth <= 5000)
+                    {
+                        salary = kmMonth * 0.75;
+                    }
+                    else if (kmMonth > 5000 && kmMonth <= 10000)
+                    {
+                        salary = kmMonth * 0.95;
+                    }
+                    else if (kmMonth > 10000 && kmMonth <= 20000)
+                    {
+                        salary = kmMonth * 1.45;
+                    }
+                    break;
+                case "Summer":
+                    if (kmMonth <= 5000)
+                    {
+                        salary = kmMonth * 0.90;
+                    }
+                    else if (kmMonth > 5000 && kmMonth <= 10000)
+                    {
+                        salary = kmMonth * 1.10;
+                    }
+                    else if (kmMonth > 10000 && kmMonth <= 20000)
+                    {
+                        salary = kmMonth * 1.45;
+                    }
+
+                    break;
+                case "Winter":
+                    if (kmMonth <= 5000)
+                    {
+                        salary = kmMonth * 1.05;
+                    }
+                    else if (kmMonth > 5000 && kmMonth <= 10000)
+                    {
+                        salary = kmMonth * 1.25;
+                    }
+                    else if (kmMonth > 10000 && kmMonth <= 20000)
+                    {
+                        salary = kmMonth * 1.45;
+                    }
+                    break;
+
+
+            }
+
+            double salaryNetto = (salary * 4) * 0.9;
+            Console.WriteLine($"{salaryNetto:f2}");
+
+        }
+    }
+}
