@@ -1,0 +1,61 @@
+using System;
+
+namespace ConsoleApp9
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+         int stadiumCapacity=int.Parse(Console.ReadLine());
+         int totalFans=int.Parse(Console.ReadLine());
+
+            double fansA = 0;
+            double fansB = 0;
+            double fansV = 0;
+            double fansG = 0;
+
+
+            string input = string.Empty;
+
+            for(int i=0;i<totalFans;i++)
+            {
+                input = Console.ReadLine();
+                if(input=="A")
+                {
+                    fansA++;
+                }
+                else if(input=="B")
+                {
+                    fansB++;    
+                }
+                else if(input=="V")
+                {
+                    fansV++;
+                }
+                else if(input=="G")
+                {
+                    fansG++;
+                }
+
+            }
+
+            double percentageA = (fansA / (double)totalFans) * 100;
+            double percentageB = (fansB / (double)totalFans) * 100;
+            double percentageV = (fansV / (double)totalFans) * 100;
+            double percentageG = (fansG / (double)totalFans) * 100;
+            double percentageAll = ((double)totalFans / (double)stadiumCapacity) * 100;
+
+            Console.WriteLine($"{percentageA:f2}%");
+            Console.WriteLine($"{percentageB:f2}%");
+            Console.WriteLine($"{percentageV:f2}%");
+            Console.WriteLine($"{percentageG:f2}%");
+            Console.WriteLine($"{percentageAll:f2}%");
+
+
+
+
+
+        }
+    }
+}
