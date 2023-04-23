@@ -1,0 +1,52 @@
+using System;
+
+namespace ConsoleApp8
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int period = int.Parse(Console.ReadLine());
+            int patients = 0;
+            int doctors = 7;
+            int untreatedPatients = 0;
+            int treatedPatients = 0;
+            int currentDay = 1;
+
+            for (int i = 1; i <= period; i++)
+            {
+                if (currentDay % 3 == 0)
+                {
+                    if(untreatedPatients>treatedPatients)
+                    {
+                        doctors++;
+                    }
+                }
+                patients = int.Parse(Console.ReadLine());
+                if (patients <= doctors)
+                {
+                    treatedPatients += patients;
+                }
+                else
+                {
+                    untreatedPatients+= (patients - doctors);
+                    treatedPatients += doctors;
+                }
+                
+                currentDay++;
+
+            }
+
+
+            Console.WriteLine($"Treated patients: {treatedPatients}.");
+            Console.WriteLine($"Untreated patients: {untreatedPatients}.");
+
+
+
+
+
+
+        }
+    }
+}
