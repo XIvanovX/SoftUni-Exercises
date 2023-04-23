@@ -1,0 +1,60 @@
+using System;
+
+namespace ConsoleApp9
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int students = int.Parse(Console.ReadLine());
+            double topStudents = 0;
+            double students4to5 = 0;
+            double students3to4 = 0;
+            double failedStudents = 0;
+            double grade = 0;
+            double totalStudents = 0;
+            double sumGrades = 0;
+
+            for(int i = 0; i < students; i++)
+            {
+                grade = double.Parse(Console.ReadLine());
+
+                if (grade >= 5)
+                {
+                    topStudents++;
+                }
+                else if (grade <= 4.99 && grade >= 4)
+                {
+                    students4to5++;
+                }
+                else if(grade<=3.99 && grade>=3)
+                {
+                    students3to4++;
+                }
+                else
+                {
+                    failedStudents++;
+                }
+                totalStudents++;
+                sumGrades += grade;
+                
+            }
+
+            double percentageTop = (topStudents / totalStudents) * 100;
+            double percentage4to5=(students4to5 / totalStudents) * 100;
+            double percentage3to4 = (students3to4 / totalStudents) * 100;
+            double percentageFailed = (failedStudents / totalStudents) * 100;
+            double averageGrade=sumGrades/totalStudents; 
+
+            Console.WriteLine($"Top students: {percentageTop:f2}%");
+            Console.WriteLine($"Between 4.00 and 4.99: {percentage4to5:f2}%");
+            Console.WriteLine($"Between 3.00 and 3.99: {percentage3to4:f2}%");
+            Console.WriteLine($"Fail: {percentageFailed:f2}%");
+            Console.WriteLine($"Average: {averageGrade:f2}");
+
+
+
+        }
+    }
+}
