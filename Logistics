@@ -1,0 +1,53 @@
+using System;
+
+namespace ConsoleApp9
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int countLoading = int.Parse(Console.ReadLine());
+            int tons;
+            double price = 0;
+            double sumTons = 0;
+            double busCount = 0;
+            double truckCount = 0;
+            double trainCount = 0;
+
+            for (int i = 1; i <= countLoading; i++)
+            {
+                tons = int.Parse(Console.ReadLine());
+
+                
+                if (tons <= 3)
+                {
+                    busCount += tons;
+                }
+                else if (tons >= 4 && tons <= 11)
+                {
+                    truckCount += tons;
+                }
+                else if(tons>=12)
+                {
+                    trainCount += tons;
+                }
+
+            }
+
+            double totalCount = busCount + truckCount + trainCount;
+
+            double averagePrice = (busCount * 200 + truckCount * 175 + trainCount * 120) / totalCount;
+            double busPercentage = (busCount / totalCount)*100;
+            double truckPercentage = (truckCount / totalCount)*100;
+            double trainPercantage = (trainCount / totalCount)*100;
+
+            Console.WriteLine($"{averagePrice:f2}");
+            Console.WriteLine($"{busPercentage:f2}%");
+            Console.WriteLine($"{truckPercentage:f2}%");
+            Console.WriteLine($"{trainPercantage:f2}%");
+
+
+        }
+    }
+}
