@@ -1,0 +1,83 @@
+using System;
+
+namespace ConsoleApp9
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int n = int.Parse(Console.ReadLine());
+            double input = 0;
+            double points = 0;
+        ;
+            double invalidNumbers = 0;
+            double numbers0to9 = 0;
+            double numbers10to19 = 0;
+            double numbers20to29 = 0;
+            double numbers30to39 = 0;
+            double numbers40to59 = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                 input = double.Parse(Console.ReadLine());
+             
+                
+                
+                  
+
+                 if(input>=0 && input<=9)
+                {
+                    points += (input * 0.2);
+                    numbers0to9++;
+                }
+                 else if (input>=10 && input<=19)
+                {
+                    points += (input * 0.3);
+                    numbers10to19++;
+
+                }
+                 else if(input>=20 && input<=29)
+                {
+                    points += input * 0.4;
+                    numbers20to29++;
+                }
+                else if(input>=30 && input<=39)
+                {
+                    points += 50;
+                    numbers30to39++;
+                }
+                else if(input>=40 && input<=50)
+                {
+                    points += 100;
+                    numbers40to59++;
+                }
+                else if(input<0 || input>50)
+                {
+                    points = points / 2;
+                    invalidNumbers++;
+                    
+
+                }
+                 
+            }
+
+            double percentage0to9 = (numbers0to9 / n) * 100;
+            double percentage10to19 = (numbers10to19 / n) * 100;
+            double percentage20to29 = (numbers20to29 / n) * 100;
+            double percentage30to39 = (numbers30to39 / n) * 100;
+            double percentage40to49 = (numbers40to59 / n) * 100;
+            double percentageInvalid = (invalidNumbers / n) * 100;
+
+            Console.WriteLine($"{points:f2}");
+            Console.WriteLine($"From 0 to 9: {percentage0to9:f2}%");
+            Console.WriteLine($"From 10 to 19: {percentage10to19:f2}%");
+            Console.WriteLine($"From 20 to 29: {percentage20to29:f2}%");
+            Console.WriteLine($"From 30 to 39: {percentage30to39:f2}%");
+            Console.WriteLine($"From 40 to 50: {percentage40to49:f2}%");
+            Console.WriteLine($"Invalid numbers: {percentageInvalid:f2}%");
+
+
+        }
+    }
+}
