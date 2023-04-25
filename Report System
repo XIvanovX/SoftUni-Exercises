@@ -1,0 +1,87 @@
+using System;
+
+namespace ConsoleApp11
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int sum = int.Parse(Console.ReadLine());
+
+            int cash = 0;
+            int card = 0;
+            int count = 1;
+            int cashCount = 0;
+            int cardCount = 0;
+
+            double totalAmount = cash + card;
+            bool isItEnough = false;
+            bool commandEnd = false;
+
+
+            string input = string.Empty;
+
+            while (input != "End")
+            {
+                input = Console.ReadLine();
+                if (input == "End")
+                {
+                    commandEnd = true;
+                    break;
+                }
+                int moneyIn = int.Parse(input);
+
+                if (count % 2 == 0)
+                {
+                    if (moneyIn < 10)
+                    {
+                        Console.WriteLine("Error in transaction!");
+                        count++;
+                        continue;
+
+                    }
+
+                    card += moneyIn;
+                    count++;
+                    cardCount++;
+                    Console.WriteLine("Product sold!");
+
+
+                }
+                else
+                {
+                    if (moneyIn > 100)
+                    {
+                        Console.WriteLine("Error in transaction!");
+                        count++;
+                        continue;
+
+                    }
+                    cash += moneyIn;
+                    count++;
+                    cashCount++;
+
+                    Console.WriteLine("Product sold!");
+
+                }
+
+                if (sum <= (cash + card))
+                {
+                    isItEnough = true;
+                    break;
+                }
+
+            }
+
+            if (isItEnough)
+            {
+                Console.WriteLine($"Average CS: {(double)cash / cashCount:f2}");
+                Console.WriteLine($"Average CC: {(double)card / cardCount:f2}");
+            }
+            if (commandEnd)
+            {
+                Console.WriteLine($"Failed to collect required money for charity.");
+            }
+        }
+    }
+}
