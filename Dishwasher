@@ -1,0 +1,68 @@
+using System;
+
+namespace ConsoleApp10
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int bottles = int.Parse(Console.ReadLine());
+            double totalLiquid = bottles * 750;
+
+            string input = string.Empty;
+            int counter = 1;
+            double usedLiquid = 0;
+             double countPlates = 0;
+            double countPots = 0;
+            bool isNotEnough = false;
+            double count = 1;
+
+
+            while(input!="End")
+
+            {
+                
+                input = Console.ReadLine();
+                if(input=="End")
+                {
+                    break;
+                }
+                double plates = double.Parse(input);
+
+                if (count % 3 == 0)
+                {
+                    usedLiquid += plates * 15;
+                    countPots += plates;
+                  
+                }
+                else
+                {
+                    usedLiquid += plates * 5;
+                    countPlates += plates;
+                }
+
+                if(usedLiquid>totalLiquid)
+                {
+                  isNotEnough = true;
+                    break;
+                }
+
+                count++;
+
+            }
+
+            if(isNotEnough)
+            {
+                Console.WriteLine($"Not enough detergent, {usedLiquid - totalLiquid} ml. more necessary!");
+            }
+            else
+            {
+                Console.WriteLine($"Detergent was enough!");
+                Console.WriteLine($"{countPlates} dishes and {countPots} pots were washed.");
+                Console.WriteLine($"Leftover detergent {totalLiquid - usedLiquid} ml.");
+            }
+
+        }
+    }
+}
